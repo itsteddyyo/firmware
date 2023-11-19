@@ -8,6 +8,9 @@ esphome:
     board_build.f_cpu: 80000000L
     board_build.extra_flags:
       - "-DARDUINO_USB_CDC_ON_BOOT=0"
+  project:
+    name: itsteddyyo.wemos_s2_mini
+    version: "1.0"
 
 esp32:
   board: lolin_s2_mini

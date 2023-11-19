@@ -1,5 +1,8 @@
 esphome:
   name_add_mac_suffix: true
+  project:
+    name: itsteddyyo.base
+    version: "1.0"
 
 wifi:
   ssid: !secret wifi_ssid

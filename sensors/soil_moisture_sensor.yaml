@@ -2,6 +2,11 @@ substitutions:
   adc_pin: GPIO32
   gpio_pin: GPIO26
 
+esphome:
+  project:
+    name: itsteddyyo.soil_moisture_sensor
+    version: "1.0"
+
 # M5 Atom-Lite Grove port used to connect sensor, pin and sensor 
 # calibraation may need updating for other platforms/ sensors
 sensor:

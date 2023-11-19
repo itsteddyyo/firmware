@@ -3,6 +3,11 @@ substitutions:
   tx_pin: GPIO18
   rx_pin: GPIO33
 
+esphome:
+  project:
+    name: itsteddyyo.mmwave_sensor
+    version: "1.0"
+
 uart:
   id: uart01
   tx_pin: ${tx_pin}

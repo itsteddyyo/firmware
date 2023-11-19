@@ -1,6 +1,11 @@
 substitutions:
   gpio_pin: GPIO26
 
+esphome:
+  project:
+    name: itsteddyyo.laser_sensor
+    version: "1.0"
+
 binary_sensor:
   - platform: gpio
     pin: ${gpio_pin}
