@@ -1,0 +1,18 @@
+substitutions:
+  name: wemos-s2-mini
+  
+esphome:
+  name: ${name}
+  platformio_options:
+    board_build.flash_mode: dio
+    board_build.f_cpu: 80000000L
+    board_build.extra_flags:
+      - "-DARDUINO_USB_CDC_ON_BOOT=0"
+
+esp32:
+  board: lolin_s2_mini
+  variant: ESP32S2
+  framework:
+    type: arduino
+    version: 2.0.9
+    platform_version: 6.3.2

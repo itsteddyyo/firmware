@@ -1,0 +1,12 @@
+substitutions:
+  gpio_pin: GPIO26
+
+binary_sensor:
+  - platform: gpio
+    pin: ${gpio_pin}
+    name: Motion
+    device_class: motion
+    publish_initial_state: true
+    filters:
+      - invert: 
+      - delayed_off: 1s

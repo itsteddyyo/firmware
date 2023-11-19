@@ -1,0 +1,31 @@
+substitutions:
+  gpio_pin: GPIO16
+  tx_pin: GPIO18
+  rx_pin: GPIO33
+
+uart:
+  id: uart01
+  tx_pin: ${tx_pin}
+  rx_pin: ${rx_pin}
+  baud_rate: 256000
+  parity: NONE
+  stop_bits: 1
+ 
+ld2410:
+  uart_id: uart01
+
+binary_sensor:
+  - platform: ld2410
+    has_moving_target:
+      name: Motion
+  - platform: gpio
+    pin: ${gpio_pin}
+    name: Occupancy
+    device_class: occupancy
+
+switch:
+  - platform: ld2410
+    engineering_mode:
+      name: Engineering Mode
+    bluetooth:
+      name: Bluetooth

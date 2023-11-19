@@ -1,0 +1,44 @@
+substitutions:
+  adc_pin: GPIO32
+  gpio_pin: GPIO26
+
+# M5 Atom-Lite Grove port used to connect sensor, pin and sensor 
+# calibraation may need updating for other platforms/ sensors
+sensor:
+  - platform: adc
+    pin: ${adc_pin}
+    name: Soil Moisture Value
+    attenuation: 11db
+    id: soil_moisture
+    accuracy_decimals: 0
+    device_class: moisture
+    unit_of_measurement: "%"
+    update_interval: 10s
+    icon: mdi:flower
+    filters:
+      - calibrate_linear:
+        - 1.795 -> 0.0
+        - 1.43 -> 100.0
+      - sliding_window_moving_average:
+          window_size: 15
+          send_every: 15
+      - median:
+          window_size: 15
+          send_every: 7
+          send_first_at: 3
+ 
+# Timed switch for water pump - manually trigger water pump for specified time.
+# Ajust delay to suit lenght of time the pump runs
+# This was added to prevent the plant/ room getting drenched by an 
+# accidental press of the switch emptying a whole water resevoir!
+switch:
+  - platform: gpio
+    pin: ${gpio_pin}
+    id: relay
+    name: Water pump
+    icon: "mdi:water"
+    on_turn_on:
+    - logger.log: "Pump Turned On!"
+    - delay: 30s
+    - switch.turn_off: relay
+    - logger.log: "Pump Turned Off!"
