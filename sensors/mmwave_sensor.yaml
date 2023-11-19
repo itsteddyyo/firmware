@@ -29,3 +29,6 @@ switch:
       name: Engineering Mode
     bluetooth:
       name: Bluetooth
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/mmwave_sensor.yaml@main

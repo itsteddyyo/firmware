@@ -16,3 +16,6 @@ esp32:
     type: arduino
     version: 2.0.9
     platform_version: 6.3.2
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/boards/wemos_s2_mini.yaml@main

@@ -10,3 +10,6 @@ binary_sensor:
     filters:
       - invert: 
       - delayed_off: 1s
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/laser_sensor.yaml@main

@@ -3,3 +3,6 @@ substitutions:
 
 esphome:
   name: ${name}
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/boards/esp32_wroom.yaml@main

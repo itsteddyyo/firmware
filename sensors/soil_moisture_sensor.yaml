@@ -42,3 +42,6 @@ switch:
     - delay: 30s
     - switch.turn_off: relay
     - logger.log: "Pump Turned Off!"
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/soil_moisture_sensor.yaml@main
