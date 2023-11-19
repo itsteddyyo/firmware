@@ -22,3 +22,6 @@ button:
 - platform: safe_mode
   name: Safe Mode Boot
   entity_category: diagnostic
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/base.yaml@main
