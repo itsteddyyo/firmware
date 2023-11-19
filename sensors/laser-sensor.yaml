@@ -3,7 +3,7 @@ substitutions:
 
 esphome:
   project:
-    name: itsteddyyo.laser_sensor
+    name: itsteddyyo.laser-sensor
     version: "1.0"
 
 binary_sensor:
@@ -17,4 +17,4 @@ binary_sensor:
       - delayed_off: 1s
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/laser_sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/laser-sensor.yaml@main

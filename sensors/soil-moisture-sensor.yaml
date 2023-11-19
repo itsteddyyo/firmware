@@ -4,7 +4,7 @@ substitutions:
 
 esphome:
   project:
-    name: itsteddyyo.soil_moisture_sensor
+    name: itsteddyyo.soil-moisture-sensor
     version: "1.0"
 
 # M5 Atom-Lite Grove port used to connect sensor, pin and sensor 
@@ -49,4 +49,4 @@ switch:
     - logger.log: "Pump Turned Off!"
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/soil_moisture_sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/soil-moisture-sensor.yaml@main

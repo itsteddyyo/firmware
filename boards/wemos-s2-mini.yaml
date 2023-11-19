@@ -9,7 +9,7 @@ esphome:
     board_build.extra_flags:
       - "-DARDUINO_USB_CDC_ON_BOOT=0"
   project:
-    name: itsteddyyo.wemos_s2_mini
+    name: itsteddyyo.wemos-s2-mini
     version: "1.0"
 
 esp32:
@@ -21,4 +21,4 @@ esp32:
     platform_version: 6.3.2
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/boards/wemos_s2_mini.yaml@main
+  package_import_url: github://itsteddyyo/firmware/boards/wemos-s2-mini.yaml@main

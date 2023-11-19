@@ -5,7 +5,7 @@ substitutions:
 
 esphome:
   project:
-    name: itsteddyyo.mmwave_sensor
+    name: itsteddyyo.mmwave-sensor
     version: "1.0"
 
 uart:
@@ -36,4 +36,4 @@ switch:
       name: Bluetooth
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/mmwave_sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/mmwave-sensor.yaml@main
