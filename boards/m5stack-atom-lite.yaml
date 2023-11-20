@@ -7,5 +7,10 @@ esphome:
     name: itsteddyyo.m5stack-atom-lite
     version: "1.0"
 
+esp32:
+  board: m5stack-atom
+  framework:
+    type: esp-idf
+
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/boards/m5stack-atom-lite.yaml@main
