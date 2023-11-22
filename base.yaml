@@ -15,6 +15,7 @@ api:
 logger:
 
 ota:
+  password: !secret ota_password
 
 improv_serial:
 
