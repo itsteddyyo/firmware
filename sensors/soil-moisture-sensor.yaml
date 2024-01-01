@@ -5,7 +5,7 @@ substitutions:
 esphome:
   project:
     name: itsteddyyo.soil-moisture-sensor
-    version: "1.1"
+    version: "1.2"
 
 # M5 Atom-Lite Grove port used to connect sensor, pin and sensor 
 # calibraation may need updating for other platforms/ sensors
@@ -22,8 +22,8 @@ sensor:
     icon: mdi:flower
     filters:
       - calibrate_linear:
-        - 1.5 -> 0.0
-        - 1.1 -> 100.0
+        - 1.65 -> 0.0
+        - 1.2 -> 100.0
       - sliding_window_moving_average:
           window_size: 15
           send_every: 15
