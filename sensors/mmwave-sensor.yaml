@@ -6,7 +6,7 @@ substitutions:
 esphome:
   project:
     name: itsteddyyo.mmwave-sensor
-    version: "1.0"
+    version: "1.1"
 
 uart:
   id: uart01
@@ -27,6 +27,10 @@ binary_sensor:
     pin: ${gpio_pin}
     name: Occupancy
     device_class: occupancy
+    publish_initial_state: true
+    filters:
+      - delayed_off: 300ms
+      - delayed_off: 3s
 
 switch:
   - platform: ld2410
