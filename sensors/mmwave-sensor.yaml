@@ -2,11 +2,13 @@ substitutions:
   gpio_pin: GPIO16
   tx_pin: GPIO18
   rx_pin: GPIO33
+  delayed_on: 200ms
+  delayed_off: 2s
 
 esphome:
   project:
     name: itsteddyyo.mmwave-sensor
-    version: "1.1"
+    version: "1.2"
 
 uart:
   id: uart01
@@ -29,8 +31,8 @@ binary_sensor:
     device_class: occupancy
     publish_initial_state: true
     filters:
-      - delayed_off: 300ms
-      - delayed_off: 3s
+      - delayed_on: ${delayed_on}
+      - delayed_off: ${delayed_off}
 
 switch:
   - platform: ld2410
