@@ -1,0 +1,29 @@
+substitutions:
+  sda_pin: GPIO21
+  scl_pin: GPIO22
+
+esphome:
+  project:
+    name: itsteddyyo.light-sensor
+    version: "1.0"
+
+i2c:
+  sda: ${sda_pin}
+  scl: ${scl_pin}
+  scan: true
+  id: bus_a
+
+sensor:
+  - platform: bh1750
+    name: "Illuminance"
+    address: 0x23
+    update_interval: 1s
+    accuracy_decimals: 1
+    filters:
+      - median:
+          window_size: 3
+          send_every: 2
+          send_first_at: 2
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/light-sensor.yaml@main
