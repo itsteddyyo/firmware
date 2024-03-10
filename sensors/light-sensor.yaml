@@ -29,7 +29,6 @@ binary_sensor:
   - platform: template
     name: Light
     device_class: light
-    #Change this value to determine desire wetness of soil
     lambda: |-
         if (id(illuminance).state > 20) {
           return true; 
