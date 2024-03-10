@@ -21,7 +21,6 @@ sensor:
     update_interval: 1s
     accuracy_decimals: 0
     filters:
-  filters:
       - delta: 10%
       - round: 0
 
