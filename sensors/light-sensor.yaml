@@ -21,6 +21,7 @@ sensor:
     update_interval: 1s
     accuracy_decimals: 0
     filters:
+      - filter_out: nan
       - delta: 10%
       - round: 0
 
