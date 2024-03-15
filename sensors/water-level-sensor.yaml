@@ -1,0 +1,35 @@
+substitutions:
+  trigger_pin: GPIO22
+  echo_pin: GPIO21
+  top_distance_in_m: 0.01
+  bottom_distance_in_m: 0.1
+
+esphome:
+  project:
+    name: itsteddyyo.water-level-sensor
+    version: "1.0"
+
+sensor:
+  - platform: ultrasonic
+    name: Water Level
+    device_class: None
+    unit_of_measurement: "%"
+    trigger_pin: GPIO26
+    echo_pin: GPIO27
+    update_interval: 15s
+    filters:
+      - filter_out: nan
+      - clamp:
+          min_value: ${top_distance_in_m}
+          max_value: ${bottom_distance_in_m}
+          ignore_out_of_range: true
+      - median:
+          window_size: 7
+          send_every: 3
+          send_first_at: 3
+      - calibrate_linear:
+        - ${bottom_distance_in_m} -> 0.0
+        - ${top_distance_in_m} -> 100.0
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/light-sensor.yaml@main
