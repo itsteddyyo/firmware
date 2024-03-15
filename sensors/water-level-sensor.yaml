@@ -14,8 +14,8 @@ sensor:
     name: Water Level
     device_class: volume
     unit_of_measurement: "%"
-    trigger_pin: GPIO26
-    echo_pin: GPIO27
+    trigger_pin: ${trigger_pin}
+    echo_pin: ${echo_pin}
     update_interval: 15s
     filters:
       - filter_out: nan
