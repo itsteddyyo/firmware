@@ -22,7 +22,7 @@ sensor:
       - clamp:
           min_value: ${top_distance_in_m}
           max_value: ${bottom_distance_in_m}
-          ignore_out_of_range: true
+          ignore_out_of_range: false
       - median:
           window_size: 7
           send_every: 3
