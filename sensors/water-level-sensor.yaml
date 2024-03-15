@@ -32,4 +32,4 @@ sensor:
         - ${top_distance_in_m} -> 100.0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/light-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/water-level-sensor.yaml@main
