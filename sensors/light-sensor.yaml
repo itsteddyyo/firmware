@@ -5,7 +5,7 @@ substitutions:
 esphome:
   project:
     name: itsteddyyo.light-sensor
-    version: "1.1"
+    version: "1.2"
 
 i2c:
   sda: ${sda_pin}
@@ -15,7 +15,6 @@ i2c:
 
 sensor:
   - platform: bh1750
-    id: illuminance
     name: "Illuminance"
     address: 0x23
     update_interval: 1s
@@ -24,17 +23,6 @@ sensor:
       - filter_out: nan
       - delta: 10%
       - round: 0
-
-binary_sensor:
-  - platform: template
-    name: Light
-    device_class: light
-    lambda: |-
-        if (id(illuminance).state > 20) {
-          return true; 
-        } else {
-          return false; 
-        }
 
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/sensors/light-sensor.yaml@main
