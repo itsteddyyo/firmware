@@ -12,7 +12,7 @@ esphome:
 sensor:
   - platform: ultrasonic
     name: Water Level
-    device_class: None
+    device_class: volume
     unit_of_measurement: "%"
     trigger_pin: GPIO26
     echo_pin: GPIO27
