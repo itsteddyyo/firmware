@@ -16,9 +16,9 @@ logger:
 
 ota:
   - platform: http_request
-    id: ota_http_request
+    id: !extend ota_http_request
   - platform: esphome
-    id: ota_esphome
+    id: !extend ota_esphome
     password: !secret ota_password
 
 improv_serial:
