@@ -15,8 +15,9 @@ api:
 logger:
 
 ota:
-  platform: esphome
-  password: !secret ota_password
+  - platform: http_request
+  - platform: esphome
+    password: !secret ota_password
 
 improv_serial:
 
