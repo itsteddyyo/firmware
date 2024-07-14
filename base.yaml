@@ -12,6 +12,10 @@ wifi:
 api:
   reboot_timeout: 3min
 
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
 logger:
 
 improv_serial:
