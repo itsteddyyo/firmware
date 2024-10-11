@@ -1,7 +1,3 @@
-substitutions:
-  adc_pin: GPIO32
-  gpio_pin: GPIO26
-
 esphome:
   project:
     name: itsteddyyo.soil-moisture-sensor

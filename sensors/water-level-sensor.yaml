@@ -1,6 +1,4 @@
-substitutions:
-  trigger_pin: GPIO22
-  echo_pin: GPIO21
+defaults:
   top_distance_in_m: 0.01
   bottom_distance_in_m: 0.1
 

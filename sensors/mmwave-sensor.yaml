@@ -1,7 +1,4 @@
-substitutions:
-  gpio_pin: GPIO16
-  tx_pin: GPIO18
-  rx_pin: GPIO33
+defaults:
   delayed_on: 200ms
   delayed_off: 2s
 
