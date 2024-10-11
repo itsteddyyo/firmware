@@ -5,7 +5,7 @@ substitutions:
 esphome:
   project:
     name: itsteddyyo.light-sensor
-    version: "1.2"
+  min_version: 2024.9.0
 
 i2c:
   sda: ${sda_pin}

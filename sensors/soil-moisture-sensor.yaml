@@ -5,7 +5,7 @@ substitutions:
 esphome:
   project:
     name: itsteddyyo.soil-moisture-sensor
-    version: "1.4"
+  min_version: 2024.9.0
 
 # M5 Atom-Lite Grove port used to connect sensor, pin and sensor 
 # calibraation may need updating for other platforms/ sensors
