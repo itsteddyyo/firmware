@@ -24,9 +24,11 @@ button:
 - platform: restart
   name: Reboot
   entity_category: diagnostic
+  disabled_by_default: true
 - platform: safe_mode
   name: Safe Mode Boot
   entity_category: diagnostic
+  disabled_by_default: true
 
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/base.yaml@main
