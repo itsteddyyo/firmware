@@ -5,6 +5,7 @@ esphome:
   name: ${name}
   project:
     name: itsteddyyo.esp32-wroom
+    version: 1.0.0
   min_version: 2024.9.0
 
 esp32:

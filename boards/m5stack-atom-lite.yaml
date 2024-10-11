@@ -5,6 +5,7 @@ esphome:
   name: ${name}
   project:
     name: itsteddyyo.m5stack-atom-lite
+    version: 1.0.0
   min_version: 2024.9.0
 
 esp32:

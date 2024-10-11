@@ -5,6 +5,7 @@ defaults:
 esphome:
   project:
     name: itsteddyyo.mmwave-sensor
+    version: 1.0.0
   min_version: 2024.9.0
 
 uart:
