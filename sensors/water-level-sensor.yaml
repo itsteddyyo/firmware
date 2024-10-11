@@ -1,4 +1,4 @@
-defaults:
+substitutions:
   top_distance_in_m: 0.01
   bottom_distance_in_m: 0.1
 

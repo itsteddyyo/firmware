@@ -1,4 +1,4 @@
-defaults:
+substitutions:
   delayed_on: 200ms
   delayed_off: 2s
 
