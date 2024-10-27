@@ -10,7 +10,7 @@ sensor:
   - platform: adc
     pin: ${adc_pin}
     name: Soil Moisture Value
-    attenuation: 11db
+    attenuation: 12db
     id: soil_moisture
     accuracy_decimals: 0
     device_class: moisture
