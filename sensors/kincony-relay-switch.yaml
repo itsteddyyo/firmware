@@ -1,0 +1,49 @@
+substitutions:
+  delay: -1
+  inverted: true
+  sda_pin: GPIO4
+  scl_pin: GPIO15
+
+esphome:
+  project:
+    name: itsteddyyo.kincony-relay-switch
+    version: 1.0.0
+  min_version: 2024.9.0
+
+globals:
+  - id: delay_${name}
+    type: int
+    restore_value: no
+    initial_value: '${delay}'
+
+i2c:
+  id: bus_a
+  scan: true
+  sda: ${sda_pin}
+  scl:
+    number: ${scl_pin}
+    ignore_strapping_warning: true
+
+pcf8574:
+  - id: outputs
+    address: 0x24
+
+switch:
+  - platform: gpio
+    id: ${name}
+    name: ${friendly_name}
+    pin:
+      pcf8574: outputs
+      number: ${gpio_pin}
+      mode: OUTPUT
+      inverted: ${inverted}
+    on_turn_on:
+      - if:
+          condition:
+            lambda: 'return id(delay_${name}).state > 0;'
+          then:
+            - delay: "${delay}s"
+            - switch.turn_off: ${name}
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/kincony-relay-switch.yaml@main
