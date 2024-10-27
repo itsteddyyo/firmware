@@ -1,5 +1,4 @@
 esphome:
-  name: ${name}
   project:
     name: itsteddyyo.m5stack-atom-lite
     version: 1.0.0

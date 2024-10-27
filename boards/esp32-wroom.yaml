@@ -1,5 +1,4 @@
 esphome:
-  name: ${name}
   project:
     name: itsteddyyo.esp32-wroom
     version: 1.0.0
