@@ -1,6 +1,3 @@
-substitutions:
-  name: m5stack-stamp-s3
-
 esphome:
   name: ${name}
   project:

@@ -1,6 +1,3 @@
-substitutions:
-  name: wemos-s2-mini
-  
 esphome:
   name: ${name}
   platformio_options:
