@@ -4,14 +4,13 @@ substitutions:
 
 esphome:
   project:
-    name: itsteddyyo.water-level-sensor
+    name: itsteddyyo.level-percentage-sensor
     version: 1.0.0
   min_version: 2024.9.0
 
 sensor:
   - platform: ultrasonic
-    name: Water Level
-    device_class: volume
+    name: ${friendly_name}
     unit_of_measurement: "%"
     trigger_pin: ${trigger_pin}
     echo_pin: ${echo_pin}
@@ -31,4 +30,4 @@ sensor:
         - ${top_distance_in_m} -> 100.0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/water-level-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/level-percentage-sensor.yaml@main
