@@ -3,6 +3,7 @@ substitutions:
   inverted: true
   sda_pin: GPIO4
   scl_pin: GPIO15
+  i2c_address: 0x24
 
 esphome:
   project:
@@ -17,16 +18,17 @@ globals:
     initial_value: '${delay}'
 
 i2c:
-  id: bus_a
-  scan: true
-  sda: ${sda_pin}
-  scl:
-    number: ${scl_pin}
-    ignore_strapping_warning: true
+  - id: bus_kincony
+    scan: true
+    sda: ${sda_pin}
+    scl:
+      number: ${scl_pin}
+      ignore_strapping_warning: true
 
 pcf8574:
   - id: outputs
-    address: 0x24
+    i2c_id: bus_kincony
+    address: ${i2c_address}
 
 switch:
   - platform: gpio
