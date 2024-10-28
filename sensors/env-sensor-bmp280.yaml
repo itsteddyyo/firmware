@@ -1,0 +1,30 @@
+substitutions:
+  i2c_address: 0x76
+
+esphome:
+  project:
+    name: itsteddyyo.env-sensor-bmp280
+    version: 1.0.0
+  min_version: 2024.9.0
+
+i2c:
+  - id: bus_env
+    scan: true
+    sda: ${sda_pin}
+    scl: ${scl_pin}
+
+sensor:
+  - platform: bmp280_i2c
+    i2c_id: bus_env
+    address: ${i2c_address}
+    update_interval: 60s
+    temperature:
+      name: "Temperature"
+      oversampling: 16x
+    pressure:
+      name: "Pressure"
+      oversampling: 16x
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/env-sensor-bmp280.yaml@main
+

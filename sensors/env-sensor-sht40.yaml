@@ -1,0 +1,29 @@
+substitutions:
+  i2c_address: 0x44
+
+esphome:
+  project:
+    name: itsteddyyo.env-sensor-sht40
+    version: 1.0.0
+  min_version: 2024.9.0
+
+i2c:
+  - id: bus_env
+    scan: true
+    sda: ${sda_pin}
+    scl: ${scl_pin}
+
+sensor:
+  - platform: sht4x
+    i2c_id: bus_env
+    address: ${i2c_address}
+    update_interval: 60s
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Relative Humidity"
+
+
+dashboard_import:
+  package_import_url: github://itsteddyyo/firmware/sensors/env-sensor-sht40.yaml@main
+
