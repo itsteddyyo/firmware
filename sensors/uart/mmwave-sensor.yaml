@@ -9,15 +9,15 @@ esphome:
   min_version: 2024.9.0
 
 uart:
-  id: uart01
-  tx_pin: ${tx_pin}
-  rx_pin: ${rx_pin}
-  baud_rate: 256000
-  parity: NONE
-  stop_bits: 1
+  - id: uart_mmwave
+    tx_pin: ${tx_pin}
+    rx_pin: ${rx_pin}
+    baud_rate: 256000
+    parity: NONE
+    stop_bits: 1
  
 ld2410:
-  uart_id: uart01
+  uart_id: uart_mmwave
 
 binary_sensor:
   - platform: ld2410
