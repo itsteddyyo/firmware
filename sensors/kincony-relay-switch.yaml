@@ -42,7 +42,7 @@ switch:
     on_turn_on:
       - if:
           condition:
-            lambda: 'return id(delay_${name}).state > 0;'
+            lambda: 'return id(delay_${name}) > 0;'
           then:
             - delay: "${delay}s"
             - switch.turn_off: ${name}
