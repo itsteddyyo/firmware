@@ -1,5 +1,5 @@
 substitutions:
-  i2c_address: 0x44
+  i2c_address: "0x44"
 
 esphome:
   project:

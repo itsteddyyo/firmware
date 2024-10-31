@@ -1,9 +1,9 @@
 substitutions:
-  delay: -1
+  delay: "-1"
   inverted: true
   sda_pin: GPIO4
   scl_pin: GPIO15
-  i2c_address: 0x24
+  i2c_address: "0x24"
 
 esphome:
   project:
