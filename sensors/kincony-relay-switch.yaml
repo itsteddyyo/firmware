@@ -1,10 +1,8 @@
 substitutions:
-  id: kincony
-  delay: "-1"
-  inverted: "true"
-  sda_pin: GPIO4
-  scl_pin: GPIO15
-  i2c_address: "0x24"
+  kincony_id: kincony
+  kincony_delay: "-1"
+  kincony_inverted: "true"
+  kincony_i2c_address: "0x24"
 
 esphome:
   project:
@@ -16,10 +14,10 @@ globals:
   - id: delay_${name}
     type: int
     restore_value: no
-    initial_value: '${delay}'
+    initial_value: '${kincony_delay}'
 
 i2c:
-  id: "bus_${id}"
+  id: "bus_${kincony_id}"
   scan: true
   sda: ${sda_pin}
   scl:
@@ -27,25 +25,25 @@ i2c:
     ignore_strapping_warning: true
 
 pcf8574:
-  id: "outputs_${id}"
-  i2c_id: "bus_${id}"
-  address: ${i2c_address}
+  id: "outputs_${kincony_id}"
+  i2c_id: "bus_${kincony_id}"
+  address: ${kincony_i2c_address}
 
 switch:
   - platform: gpio
     id: ${name}
     name: ${friendly_name}
     pin:
-      pcf8574: "outputs_${id}"
+      pcf8574: "outputs_${kincony_id}"
       number: ${gpio_pin}
       mode: OUTPUT
-      inverted: ${inverted}
+      inverted: ${kincony_inverted}
     on_turn_on:
       - if:
           condition:
             lambda: 'return id(delay_${name}) > 0;'
           then:
-            - delay: "${delay}s"
+            - delay: "${kincony_delay}s"
             - switch.turn_off: ${name}
 
 dashboard_import:

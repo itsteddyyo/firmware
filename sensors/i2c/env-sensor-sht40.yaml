@@ -1,6 +1,6 @@
 substitutions:
-  id: env-sht40
-  i2c_address: "0x44"
+  sht40_id: sht40
+  sht40_i2c_address: "0x44"
 
 esphome:
   project:
@@ -9,15 +9,15 @@ esphome:
   min_version: 2024.9.0
 
 i2c:
-  - id: "bus_${id}"
+  - id: "bus_${sht40_id}"
     scan: true
     sda: ${sda_pin}
     scl: ${scl_pin}
 
 sensor:
   - platform: sht4x
-    i2c_id: "bus_${id}"
-    address: ${i2c_address}
+    i2c_id: "bus_${sht40_id}"
+    address: ${sht40_i2c_address}
     update_interval: 60s
     temperature:
       name: "Temperature"

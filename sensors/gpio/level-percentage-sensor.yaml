@@ -1,6 +1,7 @@
 substitutions:
-  top_distance_in_m: 0.01
-  bottom_distance_in_m: 0.1
+  #distance in meters
+  level_top_distance: 0.01
+  level_bottom_distance: 0.1
 
 esphome:
   project:
@@ -18,16 +19,16 @@ sensor:
     filters:
       - filter_out: nan
       - clamp:
-          min_value: ${top_distance_in_m}
-          max_value: ${bottom_distance_in_m}
+          min_value: ${level_top_distance}
+          max_value: ${level_bottom_distance}
           ignore_out_of_range: false
       - median:
           window_size: 7
           send_every: 3
           send_first_at: 3
       - calibrate_linear:
-        - ${bottom_distance_in_m} -> 0.0
-        - ${top_distance_in_m} -> 100.0
+        - ${level_bottom_distance} -> 0.0
+        - ${level_top_distance} -> 100.0
 
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/sensors/level-percentage-sensor.yaml@main

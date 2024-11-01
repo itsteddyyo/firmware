@@ -1,7 +1,7 @@
 substitutions:
-  id: mmwave
-  delayed_on: 200ms
-  delayed_off: 2s
+  ld2410_id: ld2410
+  ld2410_delayed_on: 200ms
+  ld2410_delayed_off: 2s
 
 esphome:
   project:
@@ -10,7 +10,7 @@ esphome:
   min_version: 2024.9.0
 
 uart:
-  - id: "bus_${id}"
+  - id: "bus_${ld2410_id}"
     tx_pin: ${tx_pin}
     rx_pin: ${rx_pin}
     baud_rate: 256000
@@ -18,7 +18,7 @@ uart:
     stop_bits: 1
  
 ld2410:
-  uart_id: "bus_${id}"
+  uart_id: "bus_${ld2410_id}"
 
 binary_sensor:
   - platform: ld2410
@@ -30,8 +30,8 @@ binary_sensor:
     device_class: occupancy
     publish_initial_state: true
     filters:
-      - delayed_on: ${delayed_on}
-      - delayed_off: ${delayed_off}
+      - delayed_on: ${ld2410_delayed_on}
+      - delayed_off: ${ld2410_delayed_off}
 
 switch:
   - platform: ld2410
@@ -39,6 +39,7 @@ switch:
       name: Engineering Mode
     bluetooth:
       name: Bluetooth
+    disabled_by_default: true
 
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/sensors/mmwave-sensor.yaml@main
