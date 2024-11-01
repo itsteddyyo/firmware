@@ -1,6 +1,6 @@
 substitutions:
   kincony_id: kincony
-  kincony_delay: "-1"
+  kincony_delay: "0"
   kincony_inverted: "true"
   kincony_i2c_address: "0x24"
 
