@@ -1,4 +1,5 @@
 substitutions:
+  id: light
   i2c_address: "0x23"
 
 esphome:
@@ -8,14 +9,14 @@ esphome:
   min_version: 2024.9.0
 
 i2c:
-  - id: bus_light
+  - id: "bus_${id}"
     scan: true
     sda: ${sda_pin}
     scl: ${scl_pin}
 
 sensor:
   - platform: bh1750
-    i2c_id: bus_light
+    i2c_id: "bus_${id}"
     name: "Illuminance"
     address: ${i2c_address}
     update_interval: 1s

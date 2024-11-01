@@ -1,4 +1,5 @@
 substitutions:
+  id: kincony
   delay: "-1"
   inverted: "true"
   sda_pin: GPIO4
@@ -18,7 +19,7 @@ globals:
     initial_value: '${delay}'
 
 i2c:
-  - id: bus_kincony
+  - id: "bus_${id}"
     scan: true
     sda: ${sda_pin}
     scl:
@@ -26,8 +27,8 @@ i2c:
       ignore_strapping_warning: true
 
 pcf8574:
-  - id: outputs
-    i2c_id: bus_kincony
+  - id: "outputs_${id}"
+    i2c_id: "bus_${id}"
     address: ${i2c_address}
 
 switch:
@@ -35,7 +36,7 @@ switch:
     id: ${name}
     name: ${friendly_name}
     pin:
-      pcf8574: outputs
+      pcf8574: "outputs_${id}"
       number: ${gpio_pin}
       mode: OUTPUT
       inverted: ${inverted}

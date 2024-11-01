@@ -1,4 +1,5 @@
 substitutions:
+  id: mmwave
   delayed_on: 200ms
   delayed_off: 2s
 
@@ -9,7 +10,7 @@ esphome:
   min_version: 2024.9.0
 
 uart:
-  - id: uart_mmwave
+  - id: "bus_${id}"
     tx_pin: ${tx_pin}
     rx_pin: ${rx_pin}
     baud_rate: 256000
@@ -17,7 +18,7 @@ uart:
     stop_bits: 1
  
 ld2410:
-  uart_id: uart_mmwave
+  uart_id: "bus_${id}"
 
 binary_sensor:
   - platform: ld2410
