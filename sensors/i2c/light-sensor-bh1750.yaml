@@ -19,7 +19,7 @@ sensor:
     i2c_id: "bus_${bh1750_id}"
     name: "Illuminance"
     address: ${bh1750_i2c_address}
-    update_interval: 1s
+    update_interval: 2s
     accuracy_decimals: 0
     filters:
       - filter_out: nan
