@@ -8,11 +8,11 @@ esphome:
     version: 1.0.0
   min_version: 2024.9.0
 
-i2c:
-  - id: "bus_${sht40_id}"
-    scan: true
-    sda: ${sda_pin}
-    scl: ${scl_pin}
+#i2c:
+#  - id: "bus_${sht40_id}"
+#    scan: true
+#    sda: ${sda_pin}
+#    scl: ${scl_pin}
 
 sensor:
   - platform: sht4x
