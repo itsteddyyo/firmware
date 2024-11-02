@@ -1,7 +1,7 @@
 substitutions:
   #distance in meters
-  level_top_distance: 0.01
-  level_bottom_distance: 0.1
+  level_top_distance: "0.01"
+  level_bottom_distance: "0.1"
 
 esphome:
   project:
