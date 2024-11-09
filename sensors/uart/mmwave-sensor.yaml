@@ -18,13 +18,16 @@ uart:
     stop_bits: 1
  
 ld2410:
+  id: "${ld2410_id}_ld2410"
   uart_id: "bus_${ld2410_id}"
 
 binary_sensor:
   - platform: ld2410
     has_moving_target:
+      id: "${ld2410_id}_motion"
       name: Motion
   - platform: gpio
+    id: "${ld2410_id}_occupancy"
     pin: ${gpio_pin}
     name: Occupancy
     device_class: occupancy
@@ -36,10 +39,12 @@ binary_sensor:
 switch:
   - platform: ld2410
     engineering_mode:
+      id: "${ld2410_id}_engineering"
       name: Engineering Mode
     bluetooth:
+      id: "${ld2410_id}_bluetooth"
       name: Bluetooth
     disabled_by_default: true
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/mmwave-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/uart/mmwave-sensor.yaml@v2

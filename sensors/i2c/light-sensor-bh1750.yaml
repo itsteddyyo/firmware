@@ -9,14 +9,15 @@ esphome:
   min_version: 2024.9.0
 
 i2c:
-  - id: "bus_${bh1750_id}"
+  - id: "${bh1750_id}_bus"
     scan: true
     sda: ${sda_pin}
     scl: ${scl_pin}
 
 sensor:
   - platform: bh1750
-    i2c_id: "bus_${bh1750_id}"
+    id: "${bh1750_id}_illuminance"
+    i2c_id: "${bh1750_id}_bus"
     name: "Illuminance"
     address: ${bh1750_i2c_address}
     update_interval: 2s
@@ -27,4 +28,4 @@ sensor:
       - round: 0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/light-sensor-bh1750.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/i2c/light-sensor-bh1750.yaml@v2

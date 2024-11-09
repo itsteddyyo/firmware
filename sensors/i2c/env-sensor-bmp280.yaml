@@ -9,23 +9,25 @@ esphome:
   min_version: 2024.9.0
 
 i2c:
-  - id: "bus_${bmp280_id}"
+  - id: "${bmp280_id}_bus"
     scan: true
     sda: ${sda_pin}
     scl: ${scl_pin}
 
 sensor:
   - platform: bmp280_i2c
-    i2c_id: "bus_${bmp280_id}"
+    id: "${bmp280_id}_sensor"
+    i2c_id: "${bmp280_id}_bus"
     address: ${bmp280_i2c_address}
     update_interval: 60s
     temperature:
+      id: "${bmp280_id}_temperature"
       name: "Temperature"
       oversampling: 16x
     pressure:
+      id: "${bmp280_id}_pressure"
       name: "Pressure"
       oversampling: 16x
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/env-sensor-bmp280.yaml@main
-
+  package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-bmp280.yaml@v2

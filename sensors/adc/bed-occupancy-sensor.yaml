@@ -1,3 +1,6 @@
+substitutions:
+  bed_occupancy_id: bed_occupancy
+
 esphome:
   project:
     name: itsteddyyo.bed-occupancy-sensor
@@ -7,14 +10,14 @@ esphome:
 binary_sensor:
   - platform: template
     name: "${friendly_name} Occupied"
-    id: ${name}
-    lambda: return id(${name}_value).state < id(${name}_trigger).state;
+    id: "${bed_occupancy_id}_sensor"
+    lambda: return id(${bed_occupancy_id}_value).state < id(${bed_occupancy_id}_trigger).state;
 
 sensor:
   - platform: adc
     pin: ${adc_pin}
     name: "${friendly_name} Bed Sensor"
-    id: "${name}_value"
+    id: "${bed_occupancy_id}_value"
     icon: mdi:bed
     update_interval: 0.5s
     filters:
@@ -28,7 +31,7 @@ sensor:
 number:
   - platform: template
     name: ${friendly_name} Trigger Level
-    id: "${name}_trigger"
+    id: "${bed_occupancy_id}_trigger"
     optimistic: true
     restore_value: true
     min_value: 0
@@ -38,4 +41,4 @@ number:
     unit_of_measurement: V
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/bed-occupancy-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/adc/bed-occupancy-sensor.yaml@v2

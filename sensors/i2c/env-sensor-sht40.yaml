@@ -9,22 +9,23 @@ esphome:
   min_version: 2024.9.0
 
 #i2c:
-#  - id: "bus_${sht40_id}"
+#  - id: "${sht40_id}_bus"
 #    scan: true
 #    sda: ${sda_pin}
 #    scl: ${scl_pin}
 
 sensor:
   - platform: sht4x
-    i2c_id: "bus_${sht40_id}"
+    id: "${sht40_id}_sensor"
+    i2c_id: "${sht40_id}_bus"
     address: ${sht40_i2c_address}
     update_interval: 60s
     temperature:
+      id: "${sht40_id}_temperature"
       name: "Temperature"
     humidity:
-      name: "Relative Humidity"
-
+      id: "${sht40_id}_humidity"
+      name: "Humidity"
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/env-sensor-sht40.yaml@main
-
+  package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-sht40.yaml@v2

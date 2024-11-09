@@ -1,3 +1,6 @@
+substitutions:
+  motion_id: motion
+
 esphome:
   project:
     name: itsteddyyo.motion-sensor
@@ -6,6 +9,7 @@ esphome:
 
 binary_sensor:
   - platform: gpio
+    id: "${motion_id}_sensor"
     pin: ${gpio_pin}
     name: Motion
     device_class: motion
@@ -15,4 +19,4 @@ binary_sensor:
       - delayed_off: 1s
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/motion-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/gpio/motion-sensor.yaml@v2

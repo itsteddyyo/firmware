@@ -1,4 +1,5 @@
 substitutions:
+  level_id: level
   #distance in meters
   level_top_distance: "0.01"
   level_bottom_distance: "0.1"
@@ -11,6 +12,7 @@ esphome:
 
 sensor:
   - platform: ultrasonic
+    id: "${level_id}_sensor"
     name: ${friendly_name}
     unit_of_measurement: "%"
     trigger_pin: ${trigger_pin}
@@ -31,4 +33,4 @@ sensor:
         - ${level_top_distance} -> 100.0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/level-percentage-sensor.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/gpio/level-percentage-sensor.yaml@v2

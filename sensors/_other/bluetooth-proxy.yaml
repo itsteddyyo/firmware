@@ -15,4 +15,4 @@ bluetooth_proxy:
   active: true
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/bluetooth-proxy.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/_other/bluetooth-proxy.yaml@v2

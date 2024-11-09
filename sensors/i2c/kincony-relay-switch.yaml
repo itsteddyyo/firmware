@@ -11,13 +11,13 @@ esphome:
   min_version: 2024.9.0
 
 globals:
-  - id: delay_${name}
+  - id: "${kincony_id}_delay"
     type: int
     restore_value: no
     initial_value: '${kincony_delay}'
 
 i2c:
-  id: "bus_${kincony_id}"
+  id: "${kincony_id}_bus"
   scan: true
   sda: ${sda_pin}
   scl:
@@ -25,26 +25,26 @@ i2c:
     ignore_strapping_warning: true
 
 pcf8574:
-  id: "outputs_${kincony_id}"
-  i2c_id: "bus_${kincony_id}"
+  id: "${kincony_id}_outputs"
+  i2c_id: "${kincony_id}_bus"
   address: ${kincony_i2c_address}
 
 switch:
   - platform: gpio
-    id: ${name}
+    id: "${kincony_id}_switch"
     name: ${friendly_name}
     pin:
-      pcf8574: "outputs_${kincony_id}"
+      pcf8574: "${kincony_id}_outputs"
       number: ${gpio_pin}
       mode: OUTPUT
       inverted: ${kincony_inverted}
     on_turn_on:
       - if:
           condition:
-            lambda: 'return id(delay_${name}) > 0;'
+            lambda: 'return id(${kincony_id}_delay) > 0;'
           then:
             - delay: "${kincony_delay}s"
-            - switch.turn_off: ${name}
+            - switch.turn_off: "${kincony_id}_switch"
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/kincony-relay-switch.yaml@main
+  package_import_url: github://itsteddyyo/firmware/sensors/i2c/kincony-relay-switch.yaml@v2
