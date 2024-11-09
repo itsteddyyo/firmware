@@ -10,7 +10,7 @@ esphome:
   min_version: 2024.9.0
 
 uart:
-  - id: "bus_${ld2410_id}"
+  - id: "${ld2410_id}_uart"
     tx_pin: ${tx_pin}
     rx_pin: ${rx_pin}
     baud_rate: 256000
@@ -19,7 +19,7 @@ uart:
  
 ld2410:
   id: "${ld2410_id}_ld2410"
-  uart_id: "bus_${ld2410_id}"
+  uart_id: "${ld2410_id}_uart"
 
 binary_sensor:
   - platform: ld2410
