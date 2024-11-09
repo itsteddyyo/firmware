@@ -1,6 +1,7 @@
 substitutions:
   sht40_id: sht40
   sht40_i2c_address: "0x44"
+  sht40_i2c_id: sht40
 
 esphome:
   project:
@@ -17,7 +18,7 @@ esphome:
 sensor:
   - platform: sht4x
     id: "${sht40_id}_sensor"
-    i2c_id: "${sht40_id}_bus"
+    i2c_id: "${sht40_i2c_id}_bus"
     address: ${sht40_i2c_address}
     update_interval: 60s
     temperature:
