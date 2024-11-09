@@ -1,8 +1,9 @@
 substitutions:
   kincony_id: kincony
+  kincony_i2c_id: kincony
+  kincony_i2c_address: "0x24"
   kincony_delay: "0"
   kincony_inverted: "true"
-  kincony_i2c_address: "0x24"
 
 esphome:
   project:
@@ -16,18 +17,10 @@ globals:
     restore_value: no
     initial_value: '${kincony_delay}'
 
-i2c:
-  id: "${kincony_id}_bus"
-  scan: true
-  sda: ${sda_pin}
-  scl:
-    number: ${scl_pin}
-    ignore_strapping_warning: true
-
 pcf8574:
-  id: "${kincony_id}_outputs"
-  i2c_id: "${kincony_id}_bus"
-  address: ${kincony_i2c_address}
+  - id: "${kincony_id}_outputs"
+    i2c_id: ${kincony_i2c_id}
+    address: ${kincony_i2c_address}
 
 switch:
   - platform: gpio

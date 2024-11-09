@@ -1,5 +1,6 @@
 substitutions:
   bmp280_id: bmp280
+  bmp280_i2c_id: bmp280
   bmp280_i2c_address: "0x76"
 
 esphome:
@@ -8,16 +9,10 @@ esphome:
     version: 1.0.0
   min_version: 2024.9.0
 
-i2c:
-  - id: "${bmp280_id}_bus"
-    scan: true
-    sda: ${sda_pin}
-    scl: ${scl_pin}
-
 sensor:
   - platform: bmp280_i2c
     id: "${bmp280_id}_sensor"
-    i2c_id: "${bmp280_id}_bus"
+    i2c_id: ${bmp280_i2c_id}
     address: ${bmp280_i2c_address}
     update_interval: 60s
     temperature:
