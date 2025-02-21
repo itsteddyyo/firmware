@@ -41,10 +41,13 @@ switch:
     engineering_mode:
       id: "${ld2410_id}_engineering"
       name: Engineering Mode
+      restore_mode: ALWAYS_OFF
+      disabled_by_default: true
     bluetooth:
       id: "${ld2410_id}_bluetooth"
       name: Bluetooth
-    disabled_by_default: true
+      restore_mode: ALWAYS_OFF
+      disabled_by_default: true
 
 dashboard_import:
   package_import_url: github://itsteddyyo/firmware/sensors/uart/mmwave-sensor.yaml@v2
