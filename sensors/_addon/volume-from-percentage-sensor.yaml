@@ -1,29 +1,29 @@
 substitutions:
-  volume_id: volume
-  #volume in litres
-  volume_max: "5"
-  level_id: level
+    volume_id: volume
+    #volume in litres
+    volume_max: "5"
+    level_id: level
 
 esphome:
-  project:
-    name: itsteddyyo.volume-from-percentage-sensor
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.volume-from-percentage-sensor
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - id: !extend ${level_id}_sensor
-    internal: true
-  - platform: template
-    lambda: |-
-      return id(${level_id}_sensor).state;
-    id: "${volume_id}_sensor"
-    name: ${friendly_name}
-    device_class: volume
-    unit_of_measurement: L
-    filters:
-      - calibrate_linear:
-        - 0.0 -> 0.0
-        - 100.0 -> ${volume_max}
+    - id: !extend ${level_id}_sensor
+      internal: true
+    - platform: template
+      lambda: |-
+          return id(${level_id}_sensor).state;
+      id: "${volume_id}_sensor"
+      name: ${friendly_name}
+      device_class: volume
+      unit_of_measurement: L
+      filters:
+          - calibrate_linear:
+                - 0.0 -> 0.0
+                - 100.0 -> ${volume_max}
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/_addon/volume-from-percentage-sensor.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/_addon/volume-from-percentage-sensor.yaml@v2

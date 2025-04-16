@@ -1,36 +1,36 @@
 substitutions:
-  level_id: level
-  #distance in meters
-  level_top_distance: "0.01"
-  level_bottom_distance: "0.1"
+    level_id: level
+    #distance in meters
+    level_top_distance: "0.01"
+    level_bottom_distance: "0.1"
 
 esphome:
-  project:
-    name: itsteddyyo.level-percentage-sensor
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.level-percentage-sensor
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - platform: ultrasonic
-    id: "${level_id}_sensor"
-    name: ${friendly_name}
-    unit_of_measurement: "%"
-    trigger_pin: ${trigger_pin}
-    echo_pin: ${echo_pin}
-    update_interval: 90s
-    filters:
-      - filter_out: nan
-      - clamp:
-          min_value: ${level_top_distance}
-          max_value: ${level_bottom_distance}
-          ignore_out_of_range: false
-      - median:
-          window_size: 7
-          send_every: 3
-          send_first_at: 3
-      - calibrate_linear:
-        - ${level_bottom_distance} -> 0.0
-        - ${level_top_distance} -> 100.0
+    - platform: ultrasonic
+      id: "${level_id}_sensor"
+      name: ${friendly_name}
+      unit_of_measurement: "%"
+      trigger_pin: ${trigger_pin}
+      echo_pin: ${echo_pin}
+      update_interval: 90s
+      filters:
+          - filter_out: nan
+          - clamp:
+                min_value: ${level_top_distance}
+                max_value: ${level_bottom_distance}
+                ignore_out_of_range: false
+          - median:
+                window_size: 7
+                send_every: 3
+                send_first_at: 3
+          - calibrate_linear:
+                - ${level_bottom_distance} -> 0.0
+                - ${level_top_distance} -> 100.0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/gpio/level-percentage-sensor.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/gpio/level-percentage-sensor.yaml@v2

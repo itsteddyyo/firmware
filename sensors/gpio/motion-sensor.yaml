@@ -1,22 +1,22 @@
 substitutions:
-  motion_id: motion
+    motion_id: motion
 
 esphome:
-  project:
-    name: itsteddyyo.motion-sensor
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.motion-sensor
+        version: 1.0.0
+    min_version: 2024.9.0
 
 binary_sensor:
-  - platform: gpio
-    id: "${motion_id}_sensor"
-    pin: ${gpio_pin}
-    name: Motion
-    device_class: motion
-    publish_initial_state: true
-    filters:
-      - invert: 
-      - delayed_off: 1s
+    - platform: gpio
+      id: "${motion_id}_sensor"
+      pin: ${gpio_pin}
+      name: Motion
+      device_class: motion
+      publish_initial_state: true
+      filters:
+          - invert:
+          - delayed_off: 1s
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/gpio/motion-sensor.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/gpio/motion-sensor.yaml@v2

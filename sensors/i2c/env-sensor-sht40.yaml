@@ -1,26 +1,26 @@
 substitutions:
-  sht40_id: sht40
-  sht40_i2c_id: sht40
-  sht40_i2c_address: "0x44"
+    sht40_id: sht40
+    sht40_i2c_id: sht40
+    sht40_i2c_address: "0x44"
 
 esphome:
-  project:
-    name: itsteddyyo.env-sensor-sht40
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.env-sensor-sht40
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - platform: sht4x
-    id: "${sht40_id}_sensor"
-    i2c_id: ${sht40_i2c_id}
-    address: ${sht40_i2c_address}
-    update_interval: 60s
-    temperature:
-      id: "${sht40_id}_temperature"
-      name: "Temperature"
-    humidity:
-      id: "${sht40_id}_humidity"
-      name: "Humidity"
+    - platform: sht4x
+      id: "${sht40_id}_sensor"
+      i2c_id: ${sht40_i2c_id}
+      address: ${sht40_i2c_address}
+      update_interval: 60s
+      temperature:
+          id: "${sht40_id}_temperature"
+          name: "Temperature"
+      humidity:
+          id: "${sht40_id}_humidity"
+          name: "Humidity"
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-sht40.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-sht40.yaml@v2

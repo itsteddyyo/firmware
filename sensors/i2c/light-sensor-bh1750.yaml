@@ -1,26 +1,26 @@
 substitutions:
-  bh1750_id: bh1750
-  bh1750_i2c_id: bh1750
-  bh1750_i2c_address: "0x23"
+    bh1750_id: bh1750
+    bh1750_i2c_id: bh1750
+    bh1750_i2c_address: "0x23"
 
 esphome:
-  project:
-    name: itsteddyyo.light-sensor-bh1750
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.light-sensor-bh1750
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - platform: bh1750
-    id: "${bh1750_id}_illuminance"
-    i2c_id: ${bh1750_i2c_id}
-    name: "Illuminance"
-    address: ${bh1750_i2c_address}
-    update_interval: 2s
-    accuracy_decimals: 0
-    filters:
-      - filter_out: nan
-      - delta: 10%
-      - round: 0
+    - platform: bh1750
+      id: "${bh1750_id}_illuminance"
+      i2c_id: ${bh1750_i2c_id}
+      name: "Illuminance"
+      address: ${bh1750_i2c_address}
+      update_interval: 2s
+      accuracy_decimals: 0
+      filters:
+          - filter_out: nan
+          - delta: 10%
+          - round: 0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/i2c/light-sensor-bh1750.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/i2c/light-sensor-bh1750.yaml@v2

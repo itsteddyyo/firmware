@@ -1,14 +1,14 @@
 esphome:
-  project:
-    name: itsteddyyo.m5stack-stamp-s3
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.m5stack-stamp-s3
+        version: 1.0.0
+    min_version: 2024.9.0
 
 esp32:
-  board: esp32-s3-devkitc-1
-  framework:
-    type: esp-idf
-  flash_size: 8MB
+    board: esp32-s3-devkitc-1
+    framework:
+        type: esp-idf
+    flash_size: 8MB
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/boards/m5stack-stamp-s3.yaml@main
+    package_import_url: github://itsteddyyo/firmware/boards/m5stack-stamp-s3.yaml@main

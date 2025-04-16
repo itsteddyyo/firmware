@@ -1,28 +1,28 @@
 substitutions:
-  bmp280_id: bmp280
-  bmp280_i2c_id: bmp280
-  bmp280_i2c_address: "0x76"
+    bmp280_id: bmp280
+    bmp280_i2c_id: bmp280
+    bmp280_i2c_address: "0x76"
 
 esphome:
-  project:
-    name: itsteddyyo.env-sensor-bmp280
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.env-sensor-bmp280
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - platform: bmp280_i2c
-    id: "${bmp280_id}_sensor"
-    i2c_id: ${bmp280_i2c_id}
-    address: ${bmp280_i2c_address}
-    update_interval: 60s
-    temperature:
-      id: "${bmp280_id}_temperature"
-      name: "Temperature"
-      oversampling: 16x
-    pressure:
-      id: "${bmp280_id}_pressure"
-      name: "Pressure"
-      oversampling: 16x
+    - platform: bmp280_i2c
+      id: "${bmp280_id}_sensor"
+      i2c_id: ${bmp280_i2c_id}
+      address: ${bmp280_i2c_address}
+      update_interval: 60s
+      temperature:
+          id: "${bmp280_id}_temperature"
+          name: "Temperature"
+          oversampling: 16x
+      pressure:
+          id: "${bmp280_id}_pressure"
+          name: "Pressure"
+          oversampling: 16x
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-bmp280.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/i2c/env-sensor-bmp280.yaml@v2

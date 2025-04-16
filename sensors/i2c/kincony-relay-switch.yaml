@@ -1,43 +1,43 @@
 substitutions:
-  kincony_id: kincony
-  kincony_i2c_id: kincony
-  kincony_i2c_address: "0x24"
-  kincony_delay: "0"
-  kincony_inverted: "true"
+    kincony_id: kincony
+    kincony_i2c_id: kincony
+    kincony_i2c_address: "0x24"
+    kincony_delay: "0"
+    kincony_inverted: "true"
 
 esphome:
-  project:
-    name: itsteddyyo.kincony-relay-switch
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.kincony-relay-switch
+        version: 1.0.0
+    min_version: 2024.9.0
 
 globals:
-  - id: "${kincony_id}_delay"
-    type: int
-    restore_value: no
-    initial_value: '${kincony_delay}'
+    - id: "${kincony_id}_delay"
+      type: int
+      restore_value: no
+      initial_value: "${kincony_delay}"
 
 pcf8574:
-  - id: "${kincony_id}_outputs"
-    i2c_id: ${kincony_i2c_id}
-    address: ${kincony_i2c_address}
+    - id: "${kincony_id}_outputs"
+      i2c_id: ${kincony_i2c_id}
+      address: ${kincony_i2c_address}
 
 switch:
-  - platform: gpio
-    id: "${kincony_id}_switch"
-    name: ${friendly_name}
-    pin:
-      pcf8574: "${kincony_id}_outputs"
-      number: ${gpio_pin}
-      mode: OUTPUT
-      inverted: ${kincony_inverted}
-    on_turn_on:
-      - if:
-          condition:
-            lambda: 'return id(${kincony_id}_delay) > 0;'
-          then:
-            - delay: "${kincony_delay}s"
-            - switch.turn_off: "${kincony_id}_switch"
+    - platform: gpio
+      id: "${kincony_id}_switch"
+      name: ${friendly_name}
+      pin:
+          pcf8574: "${kincony_id}_outputs"
+          number: ${gpio_pin}
+          mode: OUTPUT
+          inverted: ${kincony_inverted}
+      on_turn_on:
+          - if:
+                condition:
+                    lambda: "return id(${kincony_id}_delay) > 0;"
+                then:
+                    - delay: "${kincony_delay}s"
+                    - switch.turn_off: "${kincony_id}_switch"
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/i2c/kincony-relay-switch.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/i2c/kincony-relay-switch.yaml@v2

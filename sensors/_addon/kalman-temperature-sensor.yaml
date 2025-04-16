@@ -1,27 +1,27 @@
 substitutions:
-  kalman_id: kalman
+    kalman_id: kalman
 
 esphome:
-  project:
-    name: itsteddyyo.kalman-temperature-sensor
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.kalman-temperature-sensor
+        version: 1.0.0
+    min_version: 2024.9.0
 
 sensor:
-  - id: !extend ${sensor_1_id}
-    internal: true
-  - id: !extend ${sensor_2_id}
-    internal: true
-  - platform: combination
-    id: "${kalman_id}_sensor"
-    type: kalman
-    name: "Temperature"
-    process_std_dev: 0.001
-    sources:
-      - source: ${sensor_1_id}
-        error: 1.0
-      - source: ${sensor_2_id}
-        error: 1.0
+    - id: !extend ${sensor_1_id}
+      internal: true
+    - id: !extend ${sensor_2_id}
+      internal: true
+    - platform: combination
+      id: "${kalman_id}_sensor"
+      type: kalman
+      name: "Temperature"
+      process_std_dev: 0.001
+      sources:
+          - source: ${sensor_1_id}
+            error: 1.0
+          - source: ${sensor_2_id}
+            error: 1.0
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/_addon/kalman-temperature-sensor.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/_addon/kalman-temperature-sensor.yaml@v2

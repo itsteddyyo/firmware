@@ -1,44 +1,44 @@
 substitutions:
-  bed_occupancy_id: bed_occupancy
+    bed_occupancy_id: bed_occupancy
 
 esphome:
-  project:
-    name: itsteddyyo.bed-occupancy-sensor
-    version: 1.0.0
-  min_version: 2024.9.0
+    project:
+        name: itsteddyyo.bed-occupancy-sensor
+        version: 1.0.0
+    min_version: 2024.9.0
 
 binary_sensor:
-  - platform: template
-    name: "${friendly_name} Occupied"
-    id: "${bed_occupancy_id}_sensor"
-    lambda: return id(${bed_occupancy_id}_value).state < id(${bed_occupancy_id}_trigger).state;
+    - platform: template
+      name: "${friendly_name} Occupied"
+      id: "${bed_occupancy_id}_sensor"
+      lambda: return id(${bed_occupancy_id}_value).state < id(${bed_occupancy_id}_trigger).state;
 
 sensor:
-  - platform: adc
-    pin: ${adc_pin}
-    name: "${friendly_name} Bed Sensor"
-    id: "${bed_occupancy_id}_value"
-    icon: mdi:bed
-    update_interval: 0.5s
-    filters:
-      - sliding_window_moving_average:
-          window_size: 10
-          send_every: 1
-      - or:
-          - throttle: 180s
-          - delta: 0.02
+    - platform: adc
+      pin: ${adc_pin}
+      name: "${friendly_name} Bed Sensor"
+      id: "${bed_occupancy_id}_value"
+      icon: mdi:bed
+      update_interval: 0.5s
+      filters:
+          - sliding_window_moving_average:
+                window_size: 10
+                send_every: 1
+          - or:
+                - throttle: 180s
+                - delta: 0.02
 
 number:
-  - platform: template
-    name: ${friendly_name} Trigger Level
-    id: "${bed_occupancy_id}_trigger"
-    optimistic: true
-    restore_value: true
-    min_value: 0
-    max_value: 3.5
-    step: 0.05
-    icon: mdi:arrow-collapse-down
-    unit_of_measurement: V
+    - platform: template
+      name: ${friendly_name} Trigger Level
+      id: "${bed_occupancy_id}_trigger"
+      optimistic: true
+      restore_value: true
+      min_value: 0
+      max_value: 3.5
+      step: 0.05
+      icon: mdi:arrow-collapse-down
+      unit_of_measurement: V
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/sensors/adc/bed-occupancy-sensor.yaml@v2
+    package_import_url: github://itsteddyyo/firmware/sensors/adc/bed-occupancy-sensor.yaml@v2

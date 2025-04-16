@@ -1,20 +1,20 @@
 esphome:
-  platformio_options:
-    board_build.flash_mode: dio
-    board_build.f_cpu: 80000000L
-    board_build.extra_flags:
-      - "-DARDUINO_USB_CDC_ON_BOOT=0"
-  project:
-    name: itsteddyyo.wemos-s2-mini
-    version: 1.0.0
-  min_version: 2024.9.0
+    platformio_options:
+        board_build.flash_mode: dio
+        board_build.f_cpu: 80000000L
+        board_build.extra_flags:
+            - "-DARDUINO_USB_CDC_ON_BOOT=0"
+    project:
+        name: itsteddyyo.wemos-s2-mini
+        version: 1.0.0
+    min_version: 2024.9.0
 
 esp32:
-  board: lolin_s2_mini
-  variant: ESP32S2
-  framework:
-    type: arduino
-    platform_version: 6.8.1
+    board: lolin_s2_mini
+    variant: ESP32S2
+    framework:
+        type: arduino
+        platform_version: 6.8.1
 
 dashboard_import:
-  package_import_url: github://itsteddyyo/firmware/boards/wemos-s2-mini.yaml@main
+    package_import_url: github://itsteddyyo/firmware/boards/wemos-s2-mini.yaml@main
