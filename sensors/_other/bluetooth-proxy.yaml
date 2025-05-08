@@ -6,10 +6,9 @@ esphome:
 
 esp32_ble_tracker:
     scan_parameters:
-        # We currently use the defaults to ensure Bluetooth
-        # can co-exist with WiFi In the future we may be able to
-        # enable the built-in coexistence logic in ESP-IDF
         active: true
+        interval: 320ms # suggested 211ms # default 320ms
+        window: 300ms # suggested 120ms # default 30ms
 
 bluetooth_proxy:
     active: true
