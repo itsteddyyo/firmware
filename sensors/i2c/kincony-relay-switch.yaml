@@ -14,7 +14,7 @@ esphome:
 globals:
     - id: "${kincony_id}_delay"
       type: int
-      restore_value: no
+      restore_value: yes
       initial_value: "${kincony_delay}"
 
 pcf8574:
