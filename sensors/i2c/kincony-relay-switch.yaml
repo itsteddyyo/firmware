@@ -36,7 +36,7 @@ switch:
                 condition:
                     lambda: "return id(${kincony_id}_delay) > 0;"
                 then:
-                    - delay: "${kincony_delay}s"
+                    - delay: !lambda "return id(${kincony_id}_delay) * 1000;"
                     - switch.turn_off: "${kincony_id}_switch"
 
 dashboard_import:
